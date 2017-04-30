@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html style="height:100%">
+<?php
+	    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+	$name = $_SESSION["name"];
+	$email= $_SESSION["email"];
+	
+require("session.php");
+?>    
+	<head>
+        <title>Day View - Final</title>
+        <!-- CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/bgrins-spectrum-98454b5/spectrum.css">
+    <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+        
+  
+
+    </head>
+
+    <body id="body" style="background-color: #E6E6E4; height:100%; overflow-x: scroll">
+        
+<!-- Custom Scroll Bar-->
+<script>
+$(document).ready(function(){
+    $("#body").mCustomScrollbar({
+        axis: "x",
+        theme: "dark";
+    });
+});
+</script>        
+        
+        
+<div id="outer-div">                
+<svg width="3840" height="600" viewBox="0 0 3840 600" style="margin-top: 0em">
+
+<!--Current Day + Date -->
+     
+<text id= "todayDay" x="0.5%" y="70%" fill="#34495e" style="font-family:now; font-size: 44px"></text>
+<text id= "todayDate" x="0.5%" y="78%" fill="#34495e" style="font-family:now; font-size: 44px"></text>
+        
+<!-- Baseline -->        
+        
+<line id="baseLine" x1="0%" y1="531px" x2="100%" y2="531px" stroke="#C74E64" stroke-width="15px"></line>
+        
+<!--Hour increments 1-12-->    
+    
+    <line x1="80" y1="512" x2="80" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="240" y1="512" x2="240" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="400" y1="512" x2="400" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="560" y1="512" x2="560" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="720" y1="512" x2="720" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="880" y1="512" x2="880" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="1040" y1="512" x2="1040" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="1200" y1="512" x2="1200" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="1360" y1="512" x2="1360" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="1520" y1="512" x2="1520" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="1680" y1="512" x2="1680" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="1840" y1="512" x2="1840" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+
+<!--Half Hour increments 1-12-->        
+        
+        <line x1="160" y1="516" x2="160" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="320" y1="516" x2="320" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="480" y1="516" x2="480" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="640" y1="516" x2="640" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="800" y1="516" x2="800" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="960" y1="516" x2="960" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="1120" y1="516" x2="1120" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="1280" y1="516" x2="1280" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="1440" y1="516" x2="1440" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="1600" y1="516" x2="1600" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="1760" y1="516" x2="1760" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="1920" y1="516" x2="1920" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+
+<!--Hour increments 12-24-->
+        
+    <line x1="2000" y1="512" x2="2000" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="2160" y1="512" x2="2160" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="2320" y1="512" x2="2320" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="2480" y1="512" x2="2480" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="2640" y1="512" x2="2640" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="2800" y1="512" x2="2800" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="2960" y1="512" x2="2960" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="3120" y1="512" x2="3120" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="3280" y1="512" x2="3280" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="3440" y1="512" x2="3440" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="3600" y1="512" x2="3600" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+    <line x1="3760" y1="512" x2="3760" y2="531" stroke="#C74E64" stroke-width="0.3125em"></line>
+
+<!--Half Hour increments 12-24-->                
+        
+        <line x1="2080" y1="516" x2="2080" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="2240" y1="516" x2="2240" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="2400" y1="516" x2="2400" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="2560" y1="516" x2="2560" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="2720" y1="516" x2="2720" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="2880" y1="516" x2="2880" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="3040" y1="516" x2="3040" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="3200" y1="516" x2="3200" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="3360" y1="516" x2="3360" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="3520" y1="516" x2="3520" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="3680" y1="516" x2="3680" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+        <line x1="3840" y1="516" x2="3840" y2="531" stroke="#C74E64" stroke-width="0.1875em"></line>
+
+     <!--Current Day + Date -->
+     
+        <text id= "todayDay" x="0.5%" y="70%" fill="#34495e" style="font-family:now; font-size: 44px"></text>
+         <text id= "todayDate" x="0.5%" y="78%" fill="#34495e" style="font-family:now; font-size: 44px"></text>
+    <!--Times-->
+    
+        <text x="61" y="566" fill="#34495e" style="font-family: now; font-size: 20">1:00</text>
+        <text x="213" y="566" fill="#34495e" style="font-family: now; font-size: 20">2:00</text>
+        <text x="378" y="566" fill="#34495e" style="font-family: now; font-size: 20">3:00</text>
+        <text x="537" y="566" fill="#34495e" style="font-family: now; font-size: 20">4:00</text>
+        <text x="695" y="566" fill="#34495e" style="font-family: now; font-size: 20">5:00</text>
+        <text x="854" y="566" fill="#34495e" style="font-family: now; font-size: 20">6:00</text>
+        <text x="1018" y="566" fill="#34495e" style="font-family: now; font-size: 20">7:00</text>
+        <text x="1176" y="566" fill="#34495e" style="font-family: now; font-size: 20">8:00</text>
+        <text x="1336" y="566" fill="#34495e" style="font-family: now; font-size: 20">9:00</text>
+        <text x="1492" y="566" fill="#34495e" style="font-family: now; font-size: 20">10:00</text>
+        <text x="1655" y="566" fill="#34495e" style="font-family: now; font-size: 20">11:00</text>
+        <text x="1810" y="566" fill="#34495e" style="font-family: now; font-size: 20">12:00</text>
+        <text x="1993" y="566" fill="#34495e" style="font-family: now; font-size: 20">1:00</text>
+        <text x="2145" y="566" fill="#34495e" style="font-family: now; font-size: 20">2:00</text>
+        <text x="2310" y="566" fill="#34495e" style="font-family: now; font-size: 20">3:00</text>
+        <text x="2469" y="566" fill="#34495e" style="font-family: now; font-size: 20">4:00</text>
+        <text x="2627" y="566" fill="#34495e" style="font-family: now; font-size: 20">5:00</text>
+        <text x="2786" y="566" fill="#34495e" style="font-family: now; font-size: 20">6:00</text>
+        <text x="2950" y="566" fill="#34495e" style="font-family: now; font-size: 20">7:00</text>
+        <text x="3108" y="566" fill="#34495e" style="font-family: now; font-size: 20">8:00</text>
+        <text x="3268" y="566" fill="#34495e" style="font-family: now; font-size: 20">9:00</text>
+        <text x="3424" y="566" fill="#34495e" style="font-family: now; font-size: 20">10:00</text>
+        <text x="3587" y="566" fill="#34495e" style="font-family: now; font-size: 20">11:00</text>
+        <text x="3742" y="566" fill="#34495e" style="font-family: now; font-size: 20">12:00</text>
+    
+
+        
+    </svg>
+</div>        
+        
+<button id="createEventButton" type="button" data-toggle="modal" data-target="#myModal" style="margin-top: 3.9em; background-color: #E6E6E4; border: none; color: transparent; float: right; position: fixed; left: 1.2em "><img src="Add%20Event%20Icon.svg" style="height: 60px; width: 60px"></button>         
+        
+          <!--Event 1 Modal-->    
+    
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog" >
+
+    <!-- Modal content-->
+    <div class="modal-content" style="border-radius: 0%; width: 50em; height: 30em">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title" style="font-family: now; font-size: 24px; font-weight: normal; padding-top: 1; margin-bottom: 0%;">Add an Event?</h4>
+      </div>
+      <div class="modal-body">
+       <form action="localhost\code\addEvent.php" method="post" role="form"> 
+        <div class="form-group">
+          <label for="eventName" style="margin-bottom: 5px; font-family: now; font-weight: normal; font-size: 18; ">Event Title: </label>
+          <input type="text" placeholder="Take out trash" style="margin-top: 5px; background-color: #F4DD75; border: 0px; width: 200" id="eventName" name="title">  
+        </div>
+        <div class="form-group">
+            <label for="tStart0" style="margin-bottom: 5px, margin-top: 5px; font-family: now; font-weight: normal; font-size: 18; margin-left: 1 ">Start Time: </label>
+            <input type="text" id="tStart0" name="sTime" placeholder="1:00" style="background-color: #F4DD75; border: 0px; width: 200">
+        </div>           
+        <div class="form-group">
+          <label for="tEnd0" style=" font-family: now; font-weight: normal; font-size: 18; margin-left: 10">End Time: </label>
+          <input type="text" id="tEnd0"  name="eTime" placeholder="3:15" style="background-color: #F4DD75; border: 0px; width: 200">
+        </div>
+        <div class="form-group" style="position: absolute; left: 14em ">
+            <label for="check-routine1" style="margin-top: 0.3125em; font-family: now; font-weight: normal; font-size: 18">Routine</label>
+            <input type="radio" id="check-routine1" style="padding-top: 6px" name="routine" >
+           </div>
+        <div class="form-group" style="position: absolute; left: 6em;">
+            <label for="check-unique1" style="margin-top: 0.3125em; font-family: now; font-weight: normal; font-size: 18">Unique</label>
+            <input type="radio" name="routine" id="check-unique1" style="padding-top: 6px">
+        </div>
+           <div class="form-group" style="position: absolute; left: 5em; top: 15em ">
+            <label for="priority1" style="margin-top: 5px; font-family: now; font-weight: normal; font-size: 18; ">Priority</label>
+            <select class="form-control" id="priority1" name="priority" style="background-color: #F4DD75; border: 0px; width: 55">
+                <option style="font-family: now; font-weight: normal; font-size: 12">1</option>
+                <option style="font-family: now; font-weight: normal; font-size: 12">2</option>
+                <option style="font-family: now; font-weight: normal; font-size: 12">3</option>
+                <option style="font-family: now; font-weight: normal; font-size: 12">4</option>
+                <option style="font-family: now; font-weight: normal; font-size: 12">5</option>
+            </select>
+           </div>
+           <div class="form-group" style="position: absolute; left: 14em; top: 15.35em">
+            <label for="type1" style="font-family: now; font-weight: normal; font-size: 18">Type</label>
+            <select class="form-control" id="type1" name="type" style="background-color: #F4DD75; border: 0px; width: 150">
+                <option style=" font-family: now; font-weight: normal; font-size: 12">Carpool</option>
+                <option style="font-family: now; font-weight: normal; font-size: 12">Errand</option>
+                <option style="font-family: now; font-weight: normal; font-size: 12">Meeting</option>
+                <option style="font-family: now; font-weight: normal; font-size: 12">Work</option>
+                <option style="font-family: now; font-weight: normal; font-size: 12">Self</option>
+            </select>
+           </div>
+           <div class="form-group" style="position: absolute; left: 32.8em; top: 0.2em">
+           <label for="social1" style="margin-top: 5px; font-family: now; font-weight: normal; font-size: 18">Social</label>
+           <input type="checkbox" id="social1" name="social">
+           </div>
+           <div id="shit" style="background-color: #C74E64; width: 10.9375em; height: 13em; position: absolute; left: 30em; top: 2.5em">
+            <input type="text" id="socialShit" placeholder=" @sarah.parker" style="background-color: #A9D8C8; border: 0px; width: 10.9375em; font-family: now; color: #969696">
+           </div>
+           <div class="form-group" style="position: absolute; left: 30.4em; top: 17.35em">
+               <label for="colorPick" style="margin-top: 5px; font-family: now; font-weight: normal; font-size: 18">Color</label>
+               <input id="colorPick">
+           </div>
+           <button type="button" name="add_sbt" onclick="validate()" class="btn btn-lg btn-default" data-dismiss="modal" style="font-family: now; font-weight: regular; font-size: 18; border-radius: 0.17em; position: absolute; left: 32.5em; top: 16.5em" >Create</button>
+       </form>      
+      </div>
+
+    </div>
+
+  </div>
+</div> 
+        
+<!-- Color Picker -->
+<script>
+$(document).ready(function(){
+    $("#colorPick").spectrum({       
+        showPalette: true,
+        showPaletteOnly: true,
+        palette: [
+                ["#1abc9c", "#16a085", "#33ce74", "#27ae60", "#3c9cdc", "#2980b9", "#9b59b6", "#8e44ad", "#34495e", "#2c3e50", "#f1c40f", "#f39c12", "#e67e22", "#d35400", "#e74c3c", "#c0392b", "#ecf0f1", "#bdc3c7", "#95a5a6", "#7f8c8d"]
+            ]
+        });
+    });
+</script>
+        
+        
+        <!-- Scripts -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="/bgrins-spectrum-98454b5/spectrum.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="Current%20Date%20Script.js"></script>
+
+
+    </body>
+</html>
